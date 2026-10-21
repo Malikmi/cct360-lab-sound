@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karachi After the Rain</title>
+    <link rel="stylesheet" href="ccs/style.css">
+</head>
+<body>
+    <header>
+        <p>MY HOMETOWN · KARACHI, PAKISTAN</p>
+        <h1>Karachi After the Rain</h1>
+        <p>A 75-second journey from rainy streets to the Arabian Sea.</p>
+    </header>
+
+    <main>
+     <img id="rainImage" class="scenePicture"
+     src="images/rain.jpg" alt="A rainy Karachi street">
+
+     <img id="trafficImage" class="scenePicture"
+     src="images/traffic.jpg" alt="Karachi traffic">
+
+     <img id="seaImage" class="scenePicture"
+     src="images/seaview.jpg" alt="Karachi sea view">
+
+      <p id="caption">Rain falls on the pavement as footsteps pass by.</p>
+         
+      <audio id="player" controls>
+    <source src="audio/rain." type="audio/wav">
+    Your browser does not support audio.
+</audio>
+        <div class="controls">
+            <button id="playBtn">Play</button>
+            <button id="pauseBtn">Pause</button>
+            <button id="stopBtn">Stop</button>
+        </div>
+        <p id="message" aria-live="polite">Press Play to begin.</p>
+        <p id="time">Time: 0 seconds / 75 seconds</p>
+
+        <section>
+            <h2>Explore the soundscape</h2>
+            <p>The picture changes with the audio. You can also choose a scene below.</p>
+            <button id="streetBtn" class="sceneBtn">Rainy streets · 0:00</button>
+            <button id="cityBtn" class="sceneBtn">City traffic · 0:22</button>
+            <button id="seaBtn" class="sceneBtn">By the sea · 0:50</button>
+        </section>
+
+        <section class="about">
+            <h2>About my soundscape</h2>
+            <p>Karachi is my hometown. This piece imagines an evening walk through the city after the rain. It begins with rain and footsteps, moves through traffic and horns, and ends with waves by the Arabian Sea.</p>
+    </main>
+    <footer>Karachi, Pakistan · CCT360-Lab 5</footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
