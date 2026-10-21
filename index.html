@@ -3,53 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karachi After the Rain</title>
-    <link rel="stylesheet" href="ccs/style.css">
+    <title>Sounds of Karachi</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header>
-        <p>MY HOMETOWN · KARACHI, PAKISTAN</p>
-        <h1>Karachi After the Rain</h1>
-        <p>A 75-second journey from rainy streets to the Arabian Sea.</p>
+        <p>MY HOMETOWN · PAKISTAN</p>
+        <h1>Sounds of Karachi</h1>
+        <p>Explore the rain, busy streets, and sea sounds of Karachi.</p>
     </header>
 
     <main>
-     <img id="rainImage" class="scenePicture"
-     src="images/rain.jpg" alt="A rainy Karachi street">
+        <h2 id="sceneTitle">Rain in Karachi</h2>
 
-     <img id="trafficImage" class="scenePicture"
-     src="images/traffic.jpg" alt="Karachi traffic">
+        <div class="pictures">
+            <img id="rainImage" class="scenePicture"
+                 src="images/rain.jpg"
+                 alt="Rain in Karachi">
 
-     <img id="seaImage" class="scenePicture"
-     src="images/seaview.jpg" alt="Karachi sea view">
+            <img id="trafficImage" class="scenePicture"
+                 src="images/traffic .jpg"
+                 alt="Traffic in Karachi">
 
-      <p id="caption">Rain falls on the pavement as footsteps pass by.</p>
-         
-      <audio id="player" controls>
-    <source src="audio/rain." type="audio/wav">
-    Your browser does not support audio.
-</audio>
-        <div class="controls">
-            <button id="playBtn">Play</button>
-            <button id="pauseBtn">Pause</button>
-            <button id="stopBtn">Stop</button>
+            <img id="seaImage" class="scenePicture"
+                 src="images/seaview.jpg"
+                 alt="The sea at Karachi Sea View">
         </div>
-        <p id="message" aria-live="polite">Press Play to begin.</p>
-        <p id="time">Time: 0 seconds / 75 seconds</p>
+
+        <p id="caption">Listen to the rain falling on the streets.</p>
+
+        <div class="sceneButtons">
+            <button id="rainBtn" class="sceneBtn">Rain</button>
+            <button id="trafficBtn" class="sceneBtn">Traffic</button>
+            <button id="seaBtn" class="sceneBtn">Sea View</button>
+        </div>
 
         <section>
-            <h2>Explore the soundscape</h2>
-            <p>The picture changes with the audio. You can also choose a scene below.</p>
-            <button id="streetBtn" class="sceneBtn">Rainy streets · 0:00</button>
-            <button id="cityBtn" class="sceneBtn">City traffic · 0:22</button>
-            <button id="seaBtn" class="sceneBtn">By the sea · 0:50</button>
+            <h2>Listen</h2>
+
+            <audio id="player" controls preload="metadata"
+                   src="audio/rain.mp3">
+                Your browser does not support audio.
+            </audio>
+
+            <div class="controls">
+                <button id="playBtn">Play</button>
+                <button id="pauseBtn">Pause</button>
+                <button id="stopBtn">Stop</button>
+            </div>
+
+            <p id="message" aria-live="polite">
+                Choose a scene or press Play.
+            </p>
+
+            <p id="time">Time: 0 seconds</p>
         </section>
 
         <section class="about">
-            <h2>About my soundscape</h2>
-            <p>Karachi is my hometown. This piece imagines an evening walk through the city after the rain. It begins with rain and footsteps, moves through traffic and horns, and ends with waves by the Arabian Sea.</p>
+            <h2>About this project</h2>
+            <p>
+                Karachi is my hometown. This webpage explores three
+                different parts of its atmosphere: rain on the streets,
+                the movement of traffic, and waves at Sea View.
+                Choose a scene to see its image and hear its sound.
+            </p>
+        </section>
     </main>
-    <footer>Karachi, Pakistan · CCT360-Lab 5</footer>
+
+    <footer>
+        Sounds of Karachi · Soundscape and Visualscape
+    </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>

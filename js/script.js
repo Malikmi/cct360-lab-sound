@@ -4,8 +4,9 @@ let playBtn = document.getElementById("playBtn");
 let pauseBtn = document.getElementById("pauseBtn");
 let stopBtn = document.getElementById("stopBtn");
 
-let streetBtn = document.getElementById("streetBtn");
-let cityBtn = document.getElementById("cityBtn");
+
+let rainBtn = document.getElementById("rainBtn");
+let trafficBtn = document.getElementById("trafficBtn");
 let seaBtn = document.getElementById("seaBtn");
 
 let scenePictures = document.getElementsByClassName("scenePicture");
@@ -16,31 +17,34 @@ let caption = document.getElementById("caption");
 let message = document.getElementById("message");
 let time = document.getElementById("time");
 
+
 let sounds = [
-    "audio/rain.wav",
+    "audio/rain.mp3",
+    "audio/traffic.mp3",
+    "audio/seaview.mp3"
 ];
 
 let titles = [
-    "1. Rainy streets",
-    "2. City traffic",
-    "3. Sea View"
+    "Rain in Karachi",
+    "Traffic in Karachi",
+    "Karachi Sea View"
 ];
 
 let captions = [
-    "Listen to the rain falling on Karachi's streets.",
+    "Listen to the rain falling on the streets.",
     "Listen to the traffic and horns of the city.",
-    "Listen to the waves along Karachi's shore."
+    "Listen to the waves reaching the shore."
 ];
 
 let scene = 0;
 
+rainBtn.addEventListener("click", chooseRain);
+trafficBtn.addEventListener("click", chooseTraffic);
+seaBtn.addEventListener("click", chooseSea);
+
 playBtn.addEventListener("click", playAudio);
 pauseBtn.addEventListener("click", pauseAudio);
 stopBtn.addEventListener("click", stopAudio);
-
-streetBtn.addEventListener("click", chooseRain);
-cityBtn.addEventListener("click", chooseTraffic);
-seaBtn.addEventListener("click", chooseSea);
 
 player.addEventListener("play", playerStarted);
 player.addEventListener("pause", playerPaused);
@@ -51,6 +55,9 @@ player.addEventListener("error", audioError);
 function showScene() {
     for (let i = 0; i < scenePictures.length; i++) {
         scenePictures[i].style.display = "none";
+    }
+
+    for (let i = 0; i < sceneButtons.length; i++) {
         sceneButtons[i].style.backgroundColor = "#245446";
     }
 
@@ -61,19 +68,72 @@ function showScene() {
     caption.innerHTML = captions[scene];
 }
 
-function changeSound() {
+function changeScene() {
     player.pause();
     player.src = sounds[scene];
+
     showScene();
+
     time.innerHTML = "Time: 0 seconds";
+    message.innerHTML = "Loading: " + titles[scene];
+
     player.play();
 }
 
 function chooseRain() {
     scene = 0;
-    changeSound();
+    changeScene();
 }
 
+function chooseTraffic() {
+    scene = 1;
+    changeScene();
+}
 
+function chooseSea() {
+    scene = 2;
+    changeScene();
+}
+
+function playAudio() {
+    player.play();
+}
+
+function pauseAudio() {
+    player.pause();
+}
+
+function stopAudio() {
+    player.pause();
+
+    if (player.readyState > 0) {
+        player.currentTime = 0;
+    }
+
+    time.innerHTML = "Time: 0 seconds";
+    message.innerHTML = "Stopped. Press Play to listen again.";
+}
+
+function playerStarted() {
+    message.innerHTML = "Playing: " + titles[scene];
+}
+
+function playerPaused() {
+    message.innerHTML = "Paused. Press Play to continue.";
+}
+
+function playerEnded() {
+    message.innerHTML = "Finished. Choose another scene or press Play.";
+}
+
+function updateTime() {
+    time.innerHTML = "Time: "
+        + Math.floor(player.currentTime) + " seconds";
+}
+
+function audioError() {
+    message.innerHTML =
+        "Audio could not load. Check the MP3 filename and audio folder.";
+}
 
 showScene();
